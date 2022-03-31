@@ -9,3 +9,12 @@ Ref. [Liu and Chen, Phys. Chem. Chem. Phys., 2017, 19, 32421-32432](https://pubs
 
 Please checkout hyres.ipynb file for details.
 
+Install
+-------
+1) download to your local
+
+git clone https://github.com/XipingGong/hyrestutorial.git
+
+2) go to the hyrestutorial folder and go through the hyres.ipynb file.
+
+Please use Jupyter notebook to read hyres.ipynb, or use firefox to read hyres.html.
