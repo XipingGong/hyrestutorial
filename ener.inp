@@ -1,0 +1,46 @@
+
+if @?pdbid eq 0     set pdbid = fp53
+
+read  rtf card name top_idpcg.inp
+read para card name param_idpcg.inp
+
+read psf card name @pdbid.psf
+read coor pdb name @pdbid.pdb
+
+! DH electrostatoc potential
+! --------------------------
+nbond inbfrq -1
+NBOND atom switch cdie vdw vswitch -
+      cutnb 20.0 ctofnb 18.0 ctonnb 16.0 -
+      eps 20 ionc 0.15
+
+! Harmonic restrict
+! -----------------
+cons harm clear
+cons harm force 1.0 sele resid 2 .and. type CA end
+
+! Hydrogen-bonding potential
+! --------------------------
+hbond ihbfrq -1
+HBOND NOACCEPTORS  HBNOEXCLUSIONS  ALL  -
+   CUTHB 6.0 CTOFHB 5.0 CTONHB 4.0  CUTHA 100.0  CTOFHA 70.0  CTONHA 50.0
+
+! energy and forces
+! ---------------------
+set natom = ?natom
+! 1) CPU
+energy 
+! or omm platform CPU precision mixed deviceid 0
+! omm on
+! energy
+coor force comp
+print coor comp sele bynu 1:@natom end
+! 2) CUDA
+omm platform CUDA precision mixed deviceid 0
+omm on
+energy
+coor force comp
+print coor comp sele bynu 1:@natom end
+
+stop
+

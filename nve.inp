@@ -1,0 +1,49 @@
+
+if @?pdbid eq 0     set pdbid = fp53
+if @?openmm eq 0    set openmm = 0
+
+read  rtf card name top_idpcg.inp
+read para card name param_idpcg.inp
+
+read psf card name @pdbid.psf
+read coor pdb name @pdbid.pdb
+
+! DH electrostatoc potential
+! --------------------------
+nbond inbfrq -1
+NBOND atom switch cdie vdw vswitch -
+      cutnb 20.0 ctofnb 18.0 ctonnb 16.0 -
+      eps 20 ionc 0.15
+
+! Harmonic restrict
+! -----------------
+cons harm clear
+cons harm force 1.0 sele resid 2 .and. type CA end
+
+! Hydrogen-bonding potential
+! --------------------------
+hbond ihbfrq -1
+HBOND NOACCEPTORS  HBNOEXCLUSIONS  ALL  -
+   CUTHB 6.0 CTOFHB 5.0 CTONHB 4.0  CUTHA 100.0  CTOFHA 70.0  CTONHA 50.0
+
+! NVE simulation
+!-------------------------------------------------------
+set nstep = 100000
+! 1) CPU
+if openmm eq 0 then
+   energy
+   dynamics leap start timestep 0.002 nstep @nstep -
+         inbfrq -1    ihbfrq -1 -
+         ilbfrq 1000 nprint 1000
+
+endif
+
+! 2) CUDA
+if openmm eq 1 then
+   omm platform CUDA precision mixed deviceid 0
+   omm on
+   energy
+   dynamics leap start timestep 0.002 nstep @nstep -
+         ilbfrq 1000 nprint 1000
+endif
+

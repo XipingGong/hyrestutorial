@@ -1,0 +1,74 @@
+
+if @?pdbid eq 0     set pdbid = fp53
+if @?openmm eq 0    set openmm = 0
+if @?label eq 0     set label = cpu
+if @?deviceid eq 0  set deviceid = 0
+
+read  rtf card name top-idpcg-sasa.inp
+read para card name hb2.0.inp
+
+read psf card name @pdbid.psf
+read coor pdb name @pdbid.pdb
+
+! DH electrostatoc potential
+! --------------------------
+nbond inbfrq -1
+NBOND atom switch cdie vdw vswitch -
+      cutnb 20.0 ctofnb 18.0 ctonnb 16.0 -
+      eps 20 ionc 0.15
+
+! Harmonic restrict
+! -----------------
+cons harm clear
+cons harm force 1.0 sele resid 2 .and. type CA end
+
+! Hydrogen-bonding potential
+! --------------------------
+hbond ihbfrq -1
+HBOND NOACCEPTORS  HBNOEXCLUSIONS  ALL  -
+   CUTHB 6.0 CTOFHB 5.0 CTONHB 4.0  CUTHA 100.0  CTOFHA 70.0  CTONHA 50.0
+
+! OpenMM set up
+! -------------
+energy
+if openmm eq 1 then
+   omm platform CUDA precision mixed deviceid @deviceid
+   omm on
+   energy
+endif
+
+! Langevin dynamics
+!-------------------------------------------------------
+shake tolerance 1.0e-06 bonh param
+set timestep = 0.002
+energy
+
+scalar FBETA set 0.2 select .not. hydrogen end
+set nstep = 50000000 ! 50000000: 100 ns
+set nprint = 50000 ! 50000: 1 print / 100 ps
+set nblocks = 9 ! 9 x 100 ns
+
+set run = 1
+open writ card unit 9  name @pdbid.@label.@run.rest
+open writ file unit 10 name @pdbid.@label.@run.dcd
+DYNAMICS LEAP LANGEVIN start timestep @timestep nstep @nstep -
+     iunread -1 iunwri 9 iuncrd 10 -
+     nprint @nprint nsavc @nprint nsavv -1 isvfrq @nprint iprfrq @nstep -
+     inbfrq -1 ihbfrq -1 ILBFRQ -1 -
+     firstt 300.0 finalt 300.0 tbath 300.0 rbuf 0.0
+! cont.
+label dynloop
+   set prerun = @run
+   incr run by 1
+   open read card unit 8  name @pdbid.@label.@prerun.rest
+   open writ card unit 9  name @pdbid.@label.@run.rest
+   open writ file unit 10 name @pdbid.@label.@run.dcd
+   DYNAMICS LEAP LANGEVIN restart timestep @timestep nstep @nstep -
+      iunread 8 iunwri 9 iuncrd 10 -
+      nprint @nprint nsavc @nprint nsavv -1 isvfrq @nprint iprfrq @nstep -
+      inbfrq -1 ihbfrq -1 ILBFRQ -1 -
+      firstt 300.0 finalt 300.0 tbath 300.0 rbuf 0.0
+if @run lt @nblocks goto dynloop
+
+stop
+

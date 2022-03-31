@@ -1,0 +1,554 @@
+* topology file for coarse grained proteins
+* Arg, Lys, Asp, Glu are CHARGED
+*
+   20    1              
+MASS   201 H_     1.008   ! amide H in backbone
+MASS   202 N_    14.007   ! backbone N (Pro)
+MASS   203 NH1_  14.007   ! backbone N (non-Pro)
+MASS   204 C_    12.011   ! carbonyl C in backbone
+MASS   205 O_    15.999   ! carbonyl O in backbone
+MASS   206 C1E_  13.019   ! CA in backbone (non-Gly)
+MASS   207 C2E_  14.027   ! CA in backbone (Gly)
+MASS   208 C3E_  15.035   ! CH3 in Ala, and capping group
+MASS   209 A2V_  43.089   ! Val side chain
+MASS   210 A1L_  57.116   ! Leu side chain
+MASS   211 A1I_  57.116   ! Ile side chain
+MASS   212 A5M_  75.149   ! Met side chain
+MASS   213 P5N_  58.060   ! Asn side chain
+MASS   214 QaD_  58.036   ! Asp side chain
+MASS   215 P4Q_  72.087   ! Gln side chain
+MASS   216 QaE_  72.063   ! Glu side chain
+MASS   217 P1C_  47.095   ! Cys side chain
+MASS   218 P1S_  31.034   ! Ser side chain
+MASS   219 P1T_  45.061   ! Thr side chain
+MASS   220 A2P_  42.081   ! Pro side chain 
+MASS   221 A3K_  42.081   ! Lys side chain 1 CB
+MASS   222 QdK_  31.058   ! Lys side chain 2 CC
+MASS   223 A3R_  42.081   ! Arg side chain 1 CB
+MASS   224 QdR_  59.072   ! Arg side chain 2 CC
+MASS   225 A4H_  26.038   ! His side chain 1 CB
+MASS   226 P1H_  27.026   ! His side chain 2 CC
+MASS   227 P2H_  28.034   ! His side chain 3 CD
+MASS   228 A1F_  39.057   ! Phe side chain 1 CB
+MASS   229 A2F_  26.038   ! Phe side chain 2 CC
+MASS   230 A3F_  26.038   ! Phe side chain 3 CD
+MASS   231 A1Y_  39.057   ! Tyr side chain 1 CB
+MASS   232 A2Y_  26.038   ! Tyr side chain 2 CC
+MASS   233 P1Y_  42.037   ! Tyr side chain 3 CD
+MASS   234 A1W_  26.038   ! Trp side chain 1 CB
+MASS   235 P1W_  28.034   ! Trp side chain 2 CC
+MASS   236 A2W_  24.022   ! Trp side chain 3 CD
+MASS   237 A3W_  26.038   ! Trp side chain 4 CE
+MASS   238 A4W_  26.038   ! Trp side chain 5 CF
+
+DECL -C
+DECL -O
+DECL +N
+DECL +H
+DECL +CA
+
+AUTOGENERATE ANGLES DIHE
+DEFA FIRS NTER LAST CTER
+
+RESI ALA_    0.00000
+GROU
+ATOM N    NH1_    0.00
+ATOM H    H_      0.00
+ATOM CA   C1E_    0.00
+GROU
+ATOM CB   C3E_    0.00
+GROU
+ATOM C    C_      0.00
+ATOM O    O_      0.00
+BOND N    CA        CA   C         C    +N        C    O         N    H
+BOND CA   CB
+IMPH N    -C   CA   H         C    CA   +N   O         CA   N    C    CB
+CMAP -C   N    CA   C         N    CA   C    +N
+DONO  H  N
+ACCE O  C
+IC   -C   CA   *N   H      0.0000    0.00  180.00    0.00   0.0000
+IC   -C   N    CA   C      0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   C    +N     0.0000    0.00  180.00    0.00   0.0000
+IC   +N   CA   *C   O      0.0000    0.00  180.00    0.00   0.0000
+IC   CA   C    +N   +CA    0.0000    0.00  180.00    0.00   0.0000
+IC   N    C    *CA  CB     0.0000    0.00  120.00    0.00   0.0000
+
+RESI CYS_    0.00000
+GROU
+ATOM N    NH1_    0.00
+ATOM H    H_      0.00
+ATOM CA   C1E_    0.00
+GROU
+ATOM CB   P1C_    0.00
+GROU
+ATOM C    C_      0.00
+ATOM O    O_      0.00
+BOND N    CA        CA   C         C    +N        C    O         N    H
+BOND CA   CB
+IMPH N    -C   CA   H         C    CA   +N   O         CA   N    C    CB
+CMAP -C   N    CA   C         N    CA   C    +N
+DONO  H  N
+ACCE O  C
+IC   -C   CA   *N   H      0.0000    0.00  180.00    0.00   0.0000
+IC   -C   N    CA   C      0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   C    +N     0.0000    0.00  180.00    0.00   0.0000
+IC   +N   CA   *C   O      0.0000    0.00  180.00    0.00   0.0000
+IC   CA   C    +N   +CA    0.0000    0.00  180.00    0.00   0.0000
+IC   N    C    *CA  CB     0.0000    0.00  120.00    0.00   0.0000
+
+RESI VAL_    0.00000
+GROU
+ATOM N    NH1_    0.00
+ATOM H    H_      0.00
+ATOM CA   C1E_    0.00
+GROU
+ATOM CB   A2V_    0.00
+GROU
+ATOM C    C_      0.00
+ATOM O    O_      0.00
+BOND N    CA        CA   C         C    +N        C    O         N    H
+BOND CA   CB
+IMPH N    -C   CA   H         C    CA   +N   O         CA   N    C    CB
+CMAP -C   N    CA   C         N    CA   C    +N
+DONO  H  N
+ACCE O  C
+IC   -C   CA   *N   H      0.0000    0.00  180.00    0.00   0.0000
+IC   -C   N    CA   C      0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   C    +N     0.0000    0.00  180.00    0.00   0.0000
+IC   +N   CA   *C   O      0.0000    0.00  180.00    0.00   0.0000
+IC   CA   C    +N   +CA    0.0000    0.00  180.00    0.00   0.0000
+IC   N    C    *CA  CB     0.0000    0.00  120.00    0.00   0.0000
+
+RESI LEU_    0.00000
+GROU
+ATOM N    NH1_    0.00
+ATOM H    H_      0.00
+ATOM CA   C1E_    0.00
+GROU
+ATOM CB   A1L_    0.00
+GROU
+ATOM C    C_      0.00
+ATOM O    O_      0.00
+BOND N    CA        CA   C         C    +N        C    O         N    H
+BOND CA   CB
+IMPH N    -C   CA   H         C    CA   +N   O         CA   N    C    CB
+CMAP -C   N    CA   C         N    CA   C    +N
+DONO  H  N
+ACCE O  C
+IC   -C   CA   *N   H      0.0000    0.00  180.00    0.00   0.0000
+IC   -C   N    CA   C      0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   C    +N     0.0000    0.00  180.00    0.00   0.0000
+IC   +N   CA   *C   O      0.0000    0.00  180.00    0.00   0.0000
+IC   CA   C    +N   +CA    0.0000    0.00  180.00    0.00   0.0000
+IC   N    C    *CA  CB     0.0000    0.00  120.00    0.00   0.0000
+
+RESI ILE_    0.00000
+GROU   
+ATOM N    NH1_    0.00
+ATOM H    H_      0.00
+ATOM CA   C1E_    0.00    
+GROU   
+ATOM CB   A1I_    0.00    
+GROU
+ATOM C    C_      0.00
+ATOM O    O_      0.00
+BOND N    CA        CA   C         C    +N        C    O         N    H
+BOND CA   CB
+IMPH N    -C   CA   H         C    CA   +N   O         CA   N    C    CB
+CMAP -C   N    CA   C         N    CA   C    +N
+DONO  H  N
+ACCE O  C
+IC   -C   CA   *N   H      0.0000    0.00  180.00    0.00   0.0000
+IC   -C   N    CA   C      0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   C    +N     0.0000    0.00  180.00    0.00   0.0000
+IC   +N   CA   *C   O      0.0000    0.00  180.00    0.00   0.0000
+IC   CA   C    +N   +CA    0.0000    0.00  180.00    0.00   0.0000
+IC   N    C    *CA  CB     0.0000    0.00  120.00    0.00   0.0000
+
+RESI MET_    0.00000
+GROU
+ATOM N    NH1_    0.00
+ATOM H    H_      0.00
+ATOM CA   C1E_    0.00
+GROU
+ATOM CB   A5M_    0.00
+GROU
+ATOM C    C_      0.00
+ATOM O    O_      0.00
+BOND N    CA        CA   C         C    +N        C    O         N    H
+BOND CA   CB
+IMPH N    -C   CA   H         C    CA   +N   O         CA   N    C    CB
+CMAP -C   N    CA   C         N    CA   C    +N
+DONO  H  N
+ACCE O  C
+IC   -C   CA   *N   H      0.0000    0.00  180.00    0.00   0.0000
+IC   -C   N    CA   C      0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   C    +N     0.0000    0.00  180.00    0.00   0.0000
+IC   +N   CA   *C   O      0.0000    0.00  180.00    0.00   0.0000
+IC   CA   C    +N   +CA    0.0000    0.00  180.00    0.00   0.0000
+IC   N    C    *CA  CB     0.0000    0.00  120.00    0.00   0.0000
+
+RESI ASN_    0.00000
+GROU
+ATOM N    NH1_    0.00
+ATOM H    H_      0.00
+ATOM CA   C1E_    0.00
+GROU
+ATOM CB   P5N_    0.00
+GROU
+ATOM C    C_      0.00
+ATOM O    O_      0.00
+BOND N    CA        CA   C         C    +N        C    O         N    H
+BOND CA   CB
+IMPH N    -C   CA   H         C    CA   +N   O         CA   N    C    CB
+CMAP -C   N    CA   C         N    CA   C    +N
+DONO  H  N
+ACCE O  C
+IC   -C   CA   *N   H      0.0000    0.00  180.00    0.00   0.0000
+IC   -C   N    CA   C      0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   C    +N     0.0000    0.00  180.00    0.00   0.0000
+IC   +N   CA   *C   O      0.0000    0.00  180.00    0.00   0.0000
+IC   CA   C    +N   +CA    0.0000    0.00  180.00    0.00   0.0000
+IC   N    C    *CA  CB     0.0000    0.00  120.00    0.00   0.0000
+
+RESI ASP_   -1.00000
+GROU
+ATOM N    NH1_    0.00
+ATOM H    H_      0.00
+ATOM CA   C1E_    0.00
+GROU
+ATOM CB   QaD_   -1.00
+GROU
+ATOM C    C_      0.00
+ATOM O    O_      0.00
+BOND N    CA        CA   C         C    +N        C    O         N    H
+BOND CA   CB
+IMPH N    -C   CA   H         C    CA   +N   O         CA   N    C    CB
+CMAP -C   N    CA   C         N    CA   C    +N
+DONO  H  N
+ACCE O  C
+IC   -C   CA   *N   H      0.0000    0.00  180.00    0.00   0.0000
+IC   -C   N    CA   C      0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   C    +N     0.0000    0.00  180.00    0.00   0.0000
+IC   +N   CA   *C   O      0.0000    0.00  180.00    0.00   0.0000
+IC   CA   C    +N   +CA    0.0000    0.00  180.00    0.00   0.0000
+IC   N    C    *CA  CB     0.0000    0.00  120.00    0.00   0.0000
+
+RESI GLN_    0.00000
+GROU
+ATOM N    NH1_    0.00
+ATOM H    H_      0.00
+ATOM CA   C1E_    0.00
+GROU
+ATOM CB   P4Q_    0.00
+GROU
+ATOM C    C_      0.00
+ATOM O    O_      0.00
+BOND N    CA        CA   C         C    +N        C    O         N    H
+BOND CA   CB
+IMPH N    -C   CA   H         C    CA   +N   O         CA   N    C    CB
+CMAP -C   N    CA   C         N    CA   C    +N
+DONO  H  N
+ACCE O  C
+IC   -C   CA   *N   H      0.0000    0.00  180.00    0.00   0.0000
+IC   -C   N    CA   C      0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   C    +N     0.0000    0.00  180.00    0.00   0.0000
+IC   +N   CA   *C   O      0.0000    0.00  180.00    0.00   0.0000
+IC   CA   C    +N   +CA    0.0000    0.00  180.00    0.00   0.0000
+IC   N    C    *CA  CB     0.0000    0.00  120.00    0.00   0.0000
+
+RESI GLU_   -1.00000
+GROU
+ATOM N    NH1_    0.00
+ATOM H    H_      0.00
+ATOM CA   C1E_    0.00
+GROU
+ATOM CB   QaE_   -1.00
+GROU
+ATOM C    C_      0.00
+ATOM O    O_      0.00
+BOND N    CA        CA   C         C    +N        C    O         N    H
+BOND CA   CB
+IMPH N    -C   CA   H         C    CA   +N   O         CA   N    C    CB
+CMAP -C   N    CA   C         N    CA   C    +N
+DONO  H  N
+ACCE O  C
+IC   -C   CA   *N   H      0.0000    0.00  180.00    0.00   0.0000
+IC   -C   N    CA   C      0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   C    +N     0.0000    0.00  180.00    0.00   0.0000
+IC   +N   CA   *C   O      0.0000    0.00  180.00    0.00   0.0000
+IC   CA   C    +N   +CA    0.0000    0.00  180.00    0.00   0.0000
+IC   N    C    *CA  CB     0.0000    0.00  120.00    0.00   0.0000
+
+RESI SER_    0.00000
+GROU
+ATOM N    NH1_    0.00
+ATOM H    H_      0.00
+ATOM CA   C1E_    0.00
+GROU 
+ATOM CB   P1S_    0.00
+GROU
+ATOM C    C_      0.00
+ATOM O    O_      0.00
+BOND N    CA        CA   C         C    +N        C    O         N    H
+BOND CA   CB
+IMPH N    -C   CA   H         C    CA   +N   O         CA   N    C    CB
+CMAP -C   N    CA   C         N    CA   C    +N
+DONO  H  N
+ACCE O  C
+IC   -C   CA   *N   H      0.0000    0.00  180.00    0.00   0.0000
+IC   -C   N    CA   C      0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   C    +N     0.0000    0.00  180.00    0.00   0.0000
+IC   +N   CA   *C   O      0.0000    0.00  180.00    0.00   0.0000
+IC   CA   C    +N   +CA    0.0000    0.00  180.00    0.00   0.0000
+IC   N    C    *CA  CB     0.0000    0.00  120.00    0.00   0.0000
+
+RESI THR_    0.00000
+GROU
+ATOM N    NH1_    0.00
+ATOM H    H_      0.00
+ATOM CA   C1E_    0.00
+GROU
+ATOM CB   P1T_    0.00
+GROU
+ATOM C    C_      0.00
+ATOM O    O_      0.00
+BOND N    CA        CA   C         C    +N        C    O         N    H
+BOND CA   CB
+IMPH N    -C   CA   H         C    CA   +N   O         CA   N    C    CB
+CMAP -C   N    CA   C         N    CA   C    +N
+DONO  H  N
+ACCE O  C
+IC   -C   CA   *N   H      0.0000    0.00  180.00    0.00   0.0000
+IC   -C   N    CA   C      0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   C    +N     0.0000    0.00  180.00    0.00   0.0000
+IC   +N   CA   *C   O      0.0000    0.00  180.00    0.00   0.0000
+IC   CA   C    +N   +CA    0.0000    0.00  180.00    0.00   0.0000
+IC   N    C    *CA  CB     0.0000    0.00  120.00    0.00   0.0000
+
+RESI LYS_    1.00000
+GROU
+ATOM N    NH1_    0.00
+ATOM H    H_      0.00
+ATOM CA   C1E_    0.00
+GROU
+ATOM CB   A3K_    0.00
+ATOM CC   QdK_    1.00
+GROU
+ATOM C    C_      0.00
+ATOM O    O_      0.00
+BOND N    CA        CA   C         C    +N        C    O         N    H
+BOND CA   CB   CB   CC
+IMPH N    -C   CA   H         C    CA   +N   O         CA   N    C    CB
+CMAP -C   N    CA   C         N    CA   C    +N
+DONO  H  N
+ACCE O  C
+IC   -C   CA   *N   H      0.0000    0.00  180.00    0.00   0.0000
+IC   -C   N    CA   C      0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   C    +N     0.0000    0.00  180.00    0.00   0.0000
+IC   +N   CA   *C   O      0.0000    0.00  180.00    0.00   0.0000
+IC   CA   C    +N   +CA    0.0000    0.00  180.00    0.00   0.0000
+IC   N    C    *CA  CB     0.0000    0.00  120.00    0.00   0.0000
+IC   C    CA   CB   CC     0.0000    0.00  180.00    0.00   0.0000
+
+RESI ARG_    1.00000
+GROU
+ATOM N    NH1_    0.00
+ATOM H    H_      0.00
+ATOM CA   C1E_    0.00
+GROU
+ATOM CB   A3R_    0.00
+ATOM CC   QdR_    1.00
+GROU
+ATOM C    C_      0.00
+ATOM O    O_      0.00
+BOND N    CA        CA   C         C    +N        C    O         N    H
+BOND CA   CB   CB   CC
+IMPH N    -C   CA   H         C    CA   +N   O         CA   N    C    CB
+CMAP -C   N    CA   C         N    CA   C    +N
+DONO  H  N
+ACCE O  C
+IC   -C   CA   *N   H      0.0000    0.00  180.00    0.00   0.0000
+IC   -C   N    CA   C      0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   C    +N     0.0000    0.00  180.00    0.00   0.0000
+IC   +N   CA   *C   O      0.0000    0.00  180.00    0.00   0.0000
+IC   CA   C    +N   +CA    0.0000    0.00  180.00    0.00   0.0000
+IC   N    C    *CA  CB     0.0000    0.00  120.00    0.00   0.0000
+IC   C    CA   CB   CC     0.0000    0.00  180.00    0.00   0.0000
+
+RESI HIS_    0.00000
+GROU
+ATOM N    NH1_    0.00
+ATOM H    H_      0.00
+ATOM CA   C1E_    0.00
+GROU
+ATOM CB   A4H_    0.00
+ATOM CC   P1H_    0.00
+ATOM CD   P2H_    0.00
+GROU
+ATOM C    C_      0.00
+ATOM O    O_      0.00
+BOND N    CA        CA   C         C    +N        C    O         N    H
+BOND CA   CB   CB   CC   CB   CD   CC   CD
+IMPH N    -C   CA   H         C    CA   +N   O         CA   N    C    CB
+CMAP -C   N    CA   C         N    CA   C    +N
+DONO  H  N
+ACCE O  C
+IC   -C   CA   *N   H      0.0000    0.00  180.00    0.00   0.0000
+IC   -C   N    CA   C      0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   C    +N     0.0000    0.00  180.00    0.00   0.0000
+IC   +N   CA   *C   O      0.0000    0.00  180.00    0.00   0.0000
+IC   CA   C    +N   +CA    0.0000    0.00  180.00    0.00   0.0000
+IC   N    C    *CA  CB     0.0000    0.00  120.00    0.00   0.0000
+IC   N    CA   CB   CC     0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   CB   CD     0.0000    0.00   60.00    0.00   0.0000
+
+RESI PHE_    0.00000
+GROU
+ATOM N    NH1_    0.00
+ATOM H    H_      0.00
+ATOM CA   C1E_    0.00
+GROU
+ATOM CB   A1F_    0.00
+ATOM CC   A2F_    0.00
+ATOM CD   A3F_    0.00
+GROU
+ATOM C    C_      0.00
+ATOM O    O_      0.00
+BOND N    CA        CA   C         C    +N        C    O         N    H
+BOND CA   CB   CB   CC   CB   CD   CC   CD
+IMPH N    -C   CA   H         C    CA   +N   O         CA   N    C    CB
+CMAP -C   N    CA   C         N    CA   C    +N
+DONO  H  N
+ACCE O  C
+IC   -C   CA   *N   H      0.0000    0.00  180.00    0.00   0.0000
+IC   -C   N    CA   C      0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   C    +N     0.0000    0.00  180.00    0.00   0.0000
+IC   +N   CA   *C   O      0.0000    0.00  180.00    0.00   0.0000
+IC   CA   C    +N   +CA    0.0000    0.00  180.00    0.00   0.0000
+IC   N    C    *CA  CB     0.0000    0.00  120.00    0.00   0.0000
+IC   N    CA   CB   CC     0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   CB   CD     0.0000    0.00   60.00    0.00   0.0000
+
+RESI TYR_    0.00000
+GROU
+ATOM N    NH1_    0.00
+ATOM H    H_      0.00
+ATOM CA   C1E_    0.00
+GROU
+ATOM CB   A1Y_    0.00
+ATOM CC   A2Y_    0.00
+ATOM CD   P1Y_    0.00
+GROU
+ATOM C    C_      0.00
+ATOM O    O_      0.00
+BOND N    CA        CA   C         C    +N        C    O         N    H
+BOND CA   CB   CB   CC   CB   CD   CC   CD
+IMPH N    -C   CA   H         C    CA   +N   O         CA   N    C    CB
+CMAP -C   N    CA   C         N    CA   C    +N
+DONO  H  N
+ACCE O  C
+IC   -C   CA   *N   H      0.0000    0.00  180.00    0.00   0.0000
+IC   -C   N    CA   C      0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   C    +N     0.0000    0.00  180.00    0.00   0.0000
+IC   +N   CA   *C   O      0.0000    0.00  180.00    0.00   0.0000
+IC   CA   C    +N   +CA    0.0000    0.00  180.00    0.00   0.0000
+IC   N    C    *CA  CB     0.0000    0.00  120.00    0.00   0.0000
+IC   N    CA   CB   CC     0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   CB   CD     0.0000    0.00   60.00    0.00   0.0000
+
+RESI TRP_    0.00000
+GROU
+ATOM N    NH1_    0.00
+ATOM H    H_      0.00
+ATOM CA   C1E_    0.00
+GROU
+ATOM CB   A1W_    0.00
+ATOM CC   P1W_    0.00
+ATOM CD   A2W_    0.00
+ATOM CE   A3W_    0.00
+ATOM CF   A4W_    0.00
+GROU
+ATOM C    C_      0.00
+ATOM O    O_      0.00
+BOND N    CA        CA   C         C    +N        C    O         N    H
+BOND CA   CB   CB   CC   CB   CD   CC   CD   CD   CE   CD   CF   CE   CF 
+IMPH N    -C   CA   H         C    CA   +N   O         CA   N    C    CB
+IMPH CD   CE   CF   CB        CD   CE   CF   CC
+CMAP -C   N    CA   C         N    CA   C    +N
+DONO  H  N
+ACCE O  C
+IC   -C   CA   *N   H      0.0000    0.00  180.00    0.00   0.0000
+IC   -C   N    CA   C      0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   C    +N     0.0000    0.00  180.00    0.00   0.0000
+IC   +N   CA   *C   O      0.0000    0.00  180.00    0.00   0.0000
+IC   CA   C    +N   +CA    0.0000    0.00  180.00    0.00   0.0000
+IC   N    C    *CA  CB     0.0000    0.00  120.00    0.00   0.0000
+IC   N    CA   CB   CC     0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   CB   CD     0.0000    0.00   60.00    0.00   0.0000
+IC   CA   CB   CD   CE     0.0000    0.00  180.00    0.00   0.0000
+IC   CA   CB   CD   CF     0.0000    0.00  180.00    0.00   0.0000
+
+RESI PRO_    0.00000
+GROU
+ATOM N    N_      0.00
+ATOM CA   C1E_    0.00
+GROU
+ATOM CB   A2P_    0.00
+GROU
+ATOM C    C_      0.00
+ATOM O    O_      0.00
+BOND N    CA        CA   C         C    +N        C    O         N    CB
+BOND CA   CB
+IMPH C    CA   +N   O         CA   N    C    CB
+ACCE O  C
+IC   -C   CA   *N   CB     0.0000    0.00  180.00    0.00   0.0000
+IC   -C   N    CA   C      0.0000    0.00  -60.00    0.00   0.0000
+IC   N    CA   C    +N     0.0000    0.00  180.00    0.00   0.0000
+IC   +N   CA   *C   O      0.0000    0.00  180.00    0.00   0.0000
+IC   CA   C    +N   +CA    0.0000    0.00  180.00    0.00   0.0000
+IC   N    C    *CA  CB     0.0000    0.00  120.00    0.00   0.0000
+
+RESI GLY_    0.00000
+GROU
+ATOM N    NH1_    0.00
+ATOM H    H_      0.00
+ATOM CA   C2E_    0.00
+GROU
+ATOM C    C_      0.00
+ATOM O    O_      0.00
+BOND N    CA        CA   C         C    +N        C    O         N    H
+IMPH N    -C   CA   H         C    CA   +N   O
+DONO  H     N
+ACCE O  C
+IC   -C   CA   *N   H      0.0000    0.00  180.00    0.00   0.0000
+IC   -C   N    CA   C      0.0000    0.00  180.00    0.00   0.0000
+IC   N    CA   C    +N     0.0000    0.00  180.00    0.00   0.0000
+IC   +N   CA   *C   O      0.0000    0.00  180.00    0.00   0.0000
+IC   CA   C    +N   +CA    0.0000    0.00  180.00    0.00   0.0000
+
+RESI AMN_    0.00000
+GROU
+ATOM CL   C3E_    0.00
+GROU
+ATOM C    C_      0.00
+ATOM O    O_      0.00
+BOND CL   C         C    +N        C    O
+IMPH C    CL   +N   O
+ACCE O C
+IC   +N   CL   *C   O      0.0000    0.00  180.00    0.00   0.0000
+IC   CL   C    +N   +CA    0.0000    0.00  180.00    0.00   0.0000
+PATC FIRS NONE LAST NONE 
+
+RESI CBX_    0.00000
+GROU
+ATOM N    NH1_    0.00
+ATOM H    H_      0.00
+ATOM CA   C3E_    0.00
+BOND N    CA        N    H
+IMPH N    -C   CA   H
+DONO  H    N
+IC   -C   CA   *N   H      0.0000    0.00  180.00    0.00   0.0000
+PATC FIRS NONE LAST NONE 
+
+END
