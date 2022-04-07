@@ -1,5 +1,6 @@
 
 if @?pdbid eq 0     set pdbid = fp53
+if @?openmm eq 0    set openmm = 0
 
 read  rtf card name top_idpcg.inp
 read para card name param_idpcg.inp
@@ -25,19 +26,16 @@ hbond ihbfrq -1
 HBOND NOACCEPTORS  HBNOEXCLUSIONS  ALL  -
    CUTHB 6.0 CTOFHB 5.0 CTONHB 4.0  CUTHA 100.0  CTOFHA 70.0  CTONHA 50.0
 
+! OpenMM
+! ------
+if openmm eq 0 then
+   omm platform CUDA precision mixed deviceid 0
+   omm on
+endif
+
 ! energy and forces
 ! ---------------------
 set natom = ?natom
-! 1) CPU
-energy 
-! or omm platform CPU precision mixed deviceid 0
-! omm on
-! energy
-coor force comp
-print coor comp sele bynu 1:@natom end
-! 2) CUDA
-omm platform CUDA precision mixed deviceid 0
-omm on
 energy
 coor force comp
 print coor comp sele bynu 1:@natom end
