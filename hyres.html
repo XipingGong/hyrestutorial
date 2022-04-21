@@ -9129,15 +9129,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box 
+/* This file is a compatability layer.  It allows the usage of flexible box
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this 
+`Modern browsers` comments below).  Browsers that are known to implement this
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+ 
+    Internet Explorer 11+
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -12519,7 +12519,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for 
+  /* This injects handle bars (a short, wide = symbol) for
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -13038,14 +13038,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
   }
-  div.output { 
+  div.output_wrapper {
     display: block;
-    page-break-inside: avoid; 
+    page-break-inside: avoid;
+  }
+  div.output {
+    display: block;
+    page-break-inside: avoid;
   }
 }
 </style>
@@ -13145,8 +13145,8 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Switching-function-applied-for-the-cutoff-scheme">Switching function applied for the cutoff scheme<a class="anchor-link" href="#Switching-function-applied-for-the-cutoff-scheme">&#182;</a></h2><p>The switching function applied in the cutoff computations is given by,</p>
-<p>$sw(r, r_{off}, r_{on}) = 
-step(r_{off}-r) + 
+<p>$sw(r, r_{off}, r_{on}) =
+step(r_{on}-r) +
 step(r-r_{on}) * [step(r_{off}-r) - step(r_{on}-r)] * \frac{(r_{off}^2-r^2)^2[(r_{off}^2-r^2) - 3*(r_{on}^2-r^2)]}{(r_{off}^2-r_{on}^2)^3} $, (1)</p>
 <p>where step is a step function.</p>
 <p>We did not implement the shift and force shift schemes for HyRes model, so this cutoff scheme is only one option to be used in the CHARMM input file.</p>
@@ -13169,7 +13169,7 @@ step(r-r_{on}) * [step(r_{off}-r) - step(r_{on}-r)] * \frac{(r_{off}^2-r^2)^2[(r
 
 <span class="k">def</span> <span class="nf">sw</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mf">18.0</span><span class="p">,</span> <span class="n">cuton</span><span class="o">=</span><span class="mf">16.0</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;&quot;Defining a switching function.&quot;&quot;&quot;</span>
-    
+
     <span class="n">xoff2</span> <span class="o">=</span> <span class="n">cutoff</span><span class="o">*</span><span class="n">cutoff</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
     <span class="n">xon2</span> <span class="o">=</span> <span class="n">cuton</span><span class="o">*</span><span class="n">cuton</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
     <span class="n">xoffon2</span> <span class="o">=</span> <span class="n">cutoff</span><span class="o">*</span><span class="n">cutoff</span> <span class="o">-</span> <span class="n">cuton</span><span class="o">*</span><span class="n">cuton</span>
@@ -13881,7 +13881,7 @@ The number of residues of KID, p53-TAD, and p53 are 26, 61, and 290, respectivel
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Figure 5</strong>. The speedup of GPU-HyRes model with the increase of systems size (# residue).</p>
 <p>We also tested the effect of system size on the performance of HyRes model (Table 1). It can be
-seen that the GPU performance becomes faster in the larger systems, and ~76x speedup can be observed in the full length of p53 protein. 
+seen that the GPU performance becomes faster in the larger systems, and ~76x speedup can be observed in the full length of p53 protein.
 This is because that the speedup of GPU-HyRes calculations scales with the system size.</p>
 <p>It also showed the comparisons with the GPU calculations without HB terms, we see
 that the calculation of HB term is the dominating part in the GPU-HyRes model, which almost
@@ -13995,7 +13995,7 @@ much greater than the partition of “computeNonbonded” part.</p>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>/home/ping/pikes_home/work/tutorial/hyres
 
- # The following are the topology and parameter files and the CHARMM input files &gt;&gt; 
+ # The following are the topology and parameter files and the CHARMM input files &gt;&gt;
 -rw-r--r-- 1 1012 1004    918 Apr  7 15:38 ener.inp
 -rw-r----- 1 1012 1004 136881 Apr  7 15:43 fp53.pdb
 -rw-r----- 1 1012 1004 495195 Apr  7 15:43 fp53.psf
@@ -14333,19 +14333,19 @@ if @run lt @nblocks goto dynloop
 stop</code></pre>
 <p>Typing the following commands to run Langevin dynamic simulations,</p>
 
-<pre><code>pdbid=kid1; label=1cpu; 
+<pre><code>pdbid=kid1; label=1cpu;
 $CHARMM label=$label pdbid=$pdbid openmm=0 -i langevin.inp &gt; $pdbid.$label.out
-pdbid=kid2; label=1cpu; 
+pdbid=kid2; label=1cpu;
 $CHARMM label=$label pdbid=$pdbid openmm=0 -i langevin.inp &gt; $pdbid.$label.out
 
-pdbid=kid1; label=8cpu; 
+pdbid=kid1; label=8cpu;
 $mpirun -np 8 $CHARMM label=$label pdbid=$pdbid openmm=0 -i langevin.inp &gt; $pdbid.$label.out
-pdbid=kid2; label=8cpu; 
+pdbid=kid2; label=8cpu;
 $mpirun -np 8 $CHARMM label=$label pdbid=$pdbid openmm=0 -i langevin.inp &gt; $pdbid.$label.out
 
-pdbid=kid1; label=1gpu; 
+pdbid=kid1; label=1gpu;
 $CHARMM label=$label pdbid=$pdbid openmm=1 deviceid=0 -i langevin.inp &gt; $pdbid.$label.out
-pdbid=kid2; label=1gpu; 
+pdbid=kid2; label=1gpu;
 $CHARMM label=$label pdbid=$pdbid openmm=1 deviceid=1 -i langevin.inp &gt; $pdbid.$label.out</code></pre>
 
 </div>
@@ -14393,7 +14393,7 @@ mpirun='/home/ping/programs/openmpi/openmpi-3.0.0/build/bin/mpirun'</code></pre>
   </div>
 </body>
 
- 
+
 
 
 </html>
